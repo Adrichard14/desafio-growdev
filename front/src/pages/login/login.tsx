@@ -78,8 +78,7 @@ const LoginPage: React.FC = () => {
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
-                            className={`${styles.input} w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
-                            // className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className={`${styles.input} w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-700`}
                             required
                             disabled={isLoading}
                         />
