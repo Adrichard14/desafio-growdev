@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  nest-backend:
+    build:
+      context: ./back
+      dockerfile: Dockerfile.nest
+    ports:
+      - "3005:3005"
+    environment:
+      PORT: 3005
+      JWT_SECRET: ${JWT_SECRET}
+      MONGODB_DATABASE_URL: ${MONGODB_DATABASE_URL}
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+      GEMINI_MODEL: ${GEMINI_MODEL}
+
+  react-frontend:
+    build:
+      context: ./front
+      dockerfile: Dockerfile.react
+    ports:
+      - "8080:80"
+    environment:
+      VITE_API_URL: ${VITE_API_URL}
+      VITE_APP_NAME: ${VITE_APP_NAME}
+    depends_on:
+      - nest-backend
