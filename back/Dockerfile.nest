@@ -1,0 +1,14 @@
+FROM node:24
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install --legacy-peer-deps --production
+
+COPY . .
+
+RUN npm run build   # compila o Nest para dist
+
+CMD ["npm", "run", "start:prod"]
+
+EXPOSE 3005
